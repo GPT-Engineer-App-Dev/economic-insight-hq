@@ -1,19 +1,34 @@
-// Update this page (the content is just a fallback if you fail and example)
-// Use chakra-ui
-import { Container, Text, VStack } from "@chakra-ui/react";
-
-// Example of using react-icons
-// import { FaRocket } from "react-icons/fa";
-// <IconButton aria-label="Add" icon={<FaRocket />} size="lg" />; // IconButton would also have to be imported from chakra
+import { Container, Grid, GridItem, VStack } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
+import ArticleCard from "../components/ArticleCard";
+import Sidebar from "../components/Sidebar";
 
 const Index = () => {
   return (
-    <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
-      <VStack spacing={4}>
-        <Text fontSize="2xl">Your Blank Canvas</Text>
-        <Text>Chat with the agent to start making edits.</Text>
-      </VStack>
-    </Container>
+    <>
+      <Navbar />
+      <Container maxW="container.xl" mt={4}>
+        <Grid templateColumns={{ base: "1fr", md: "3fr 1fr" }} gap={4}>
+          <GridItem>
+            <VStack spacing={4}>
+              <ArticleCard
+                title="Breaking News: Market Hits Record High"
+                description="The stock market reached an all-time high today with major indices showing significant gains."
+                imageUrl="https://via.placeholder.com/400"
+              />
+              <ArticleCard
+                title="Global Economy: Trends to Watch"
+                description="Experts discuss the key trends that will shape the global economy in the coming years."
+                imageUrl="https://via.placeholder.com/400"
+              />
+            </VStack>
+          </GridItem>
+          <GridItem>
+            <Sidebar />
+          </GridItem>
+        </Grid>
+      </Container>
+    </>
   );
 };
 
